@@ -3,17 +3,28 @@
 <h2> Introduce tu url</h2>
 
 <form method="post" action="/urls">
-<br>
     <input type="text" name="long_url">
     <br>
     <br>
     <input type="submit" value="Reduce tu Url">
 </form>
+<br>
+<br>
+<p style="margin-left: 65%; font-weight: bolder">Paginas generadas: <%= @urls.last.id %></p>
+    <table style="width: 100%" border="1">
+    <tr>
+        <th><h4>URL::Original</h4></th>
+        <th><h4>URL::Short</h4></th>
+        <!-- <th><h4>URL::Contador de Visitas</h4></th> -->
+    </tr>
+ <% @urls.each do |x| %>
 
-<%= if @ya_cortado %> 
-<p><%"El link es: #{@ya_cortado}" %></p>
-<% end %>
+    <tr>
+        <td><a href="<%= x.long_url %>"><%= x.long_url %></a></td>
+        <td><a href="<%= x.long_url %>"><%= x.short_url %></a></td>
+        <!-- <td><%= x.click_count%></td> -->
+    </tr>
 
+ <% end %>
 
-
-
+    </table>
